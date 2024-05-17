@@ -33,7 +33,7 @@ public class MenuViewModel: ViewModelBase
             new() { MenuHeader = "Message Box", Key = MenuKeys.MenuKeyMessageBox },
             new() { MenuHeader = "MultiComboBox", Key = MenuKeys.MenuKeyMultiComboBox, Status = "New" },
             new() { MenuHeader = "Nav Menu", Key = MenuKeys.MenuKeyNavMenu },
-            // new() { MenuHeader = "Number Displayer", Key = MenuKeys.MenuKeyNumberDisplayer, Status = "New" }, 
+            new() { MenuHeader = "Number Displayer", Key = MenuKeys.MenuKeyNumberDisplayer, Status = "New" }, 
             new() { MenuHeader = "Numeric UpDown", Key = MenuKeys.MenuKeyNumericUpDown },
             new() { MenuHeader = "NumPad", Key = MenuKeys.MenuKeyNumPad },
             new() { MenuHeader = "Pagination", Key = MenuKeys.MenuKeyPagination },
