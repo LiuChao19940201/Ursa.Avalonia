@@ -4,23 +4,29 @@ using Ursa.Controls;
 
 namespace Ursa.Demo.Controls;
 
-public class CustomDisplayer: NumberDisplayer<double>
+public class CustomDisplayer: NumberDisplayer<string?>
 {
     protected override Type StyleKeyOverride { get; } = typeof(NumberDisplayerBase);
     
-    protected override InterpolatingAnimator<double> GetAnimator()
+    protected override InterpolatingAnimator<string?> GetAnimator()
     {
-        return new DoubleAnimator();
+        return new StringAnimator();
     }
-    private class DoubleAnimator : InterpolatingAnimator<double>
+    private class StringAnimator : InterpolatingAnimator<string?>
     {
-        public override double Interpolate(double progress, double oldValue, double newValue)
+        public override string? Interpolate(double progress, string? oldValue, string? newValue)
         {
-            return oldValue + (newValue - oldValue) * progress;
+            int oldLength = oldValue?.Length ?? 0;
+            int newLength = newValue?.Length ?? 0;
+            if (progress == 0) return oldValue;
+            else if (progress == 1) return newValue;
+            int start = (int)(oldLength * progress);
+            int length = Math.Min(oldLength, newLength);
+            return (oldValue + newValue)?.Substring(start, newLength);
         }
     }
-    protected override string GetString(double value)
+    protected override string GetString(string? value)
     {
-        return value.ToString(StringFormat);
+        return value??string.Empty;
     }
 }

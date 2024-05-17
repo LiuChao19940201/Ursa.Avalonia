@@ -28,6 +28,6 @@
             StringFormat="yyyy-MM-dd"
             IsSelectable="True"
             Value="{Binding DateValue}" />
-        <controls:CustomDisplayer Value="{Binding Value}" StringFormat="N2"/>
+        <controls:CustomDisplayer Value="{Binding StringValue}"/>
     </StackPanel>
 </UserControl>
